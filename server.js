@@ -91,7 +91,7 @@ app.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     userService
-      .removeFavourite(req.user._id)
+      .removeFavourite(req.user._id, req.params.id)
       .then((data) => {
         res.json(data);
       })
